@@ -1,0 +1,46 @@
+{
+  "roomCard": [
+    {
+      "roomImage": "assets/images/master bedroom.jpg",
+      "roomName": "Master Bedroom",
+      "roomConnectedDevices": "4 Devices"
+    },
+    {
+      "roomImage": "assets/images/living room.jpg",
+      "roomName": "Living Bedroom",
+      "roomConnectedDevices": "4 Devices"
+    },
+    {
+      "roomImage": "assets/images/dining room.jpg",
+      "roomName": "Dining Bedroom",
+      "roomConnectedDevices": "13 Devices"
+    },
+    {
+      "roomImage": "assets/images/washing room.jpg",
+      "roomName": "Washing Bedroom",
+      "roomConnectedDevices": "4 Devices"
+    }
+  ],
+  "deviceCard": [
+    {
+      "devicesHomeImage": "assets/images/homeicon.png",
+      "devicesName": "Thermostat",
+      "devicesConnectedDevices": "3 Devices"
+    },
+    {
+      "devicesHomeImage": "assets/images/homeicon.png",
+      "devicesName": "Lighting",
+      "devicesConnectedDevices": "20 Devices"
+    },
+    {
+      "devicesHomeImage": "assets/images/homeicon.png",
+      "devicesName": "Smart Tv",
+      "devicesConnectedDevices": "3 Devices"
+    },
+    {
+      "devicesHomeImage": "assets/images/homeicon.png",
+      "devicesName": "Wifi Router",
+      "devicesConnectedDevices": "2 Devices"
+    }
+  ]
+}
