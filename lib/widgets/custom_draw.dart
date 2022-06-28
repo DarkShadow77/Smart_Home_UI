@@ -2,7 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:smart_home/widgets/utlis.dart';
+import 'package:podcast/widgets/utlis.dart';
 
 class CustomArc extends StatelessWidget {
   @override
@@ -19,9 +19,9 @@ class CustomArcPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = Color(0xffbac4cf)
-      ..strokeWidth = 10.0
+      ..strokeWidth = 3.0
       ..style = PaintingStyle.stroke
-      ..strokeJoin = StrokeJoin.miter;
+      ..strokeJoin = StrokeJoin.round;
 
     var path = Path()
       ..moveTo(0, size.height / 2)
@@ -34,9 +34,9 @@ class CustomArcPainter extends CustomPainter {
           pi);
 
     Path dashPath = Path();
-    double dashWidth = 2;
-    double dashSpace = 19;
-    double distance = 5;
+    double dashWidth = 1;
+    double dashSpace = 15;
+    double distance = 1;
 
     for (PathMetric pathMetric in path.computeMetrics()) {
       while (distance < pathMetric.length) {

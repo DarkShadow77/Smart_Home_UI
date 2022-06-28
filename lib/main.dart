@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:smart_home/screen/home_page.dart';
-import 'package:smart_home/utils/colors.dart';
+import 'package:flutter_sound/flutter_sound.dart';
+import 'package:podcast/audio.dart';
+import 'package:podcast/utils/colors.dart';
+
+import 'screens/home.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: AppColors.second,
+      statusBarColor: AppColors.backgroundColor,
+      systemNavigationBarColor: Color(0xff30304B),
     ),
   );
   runApp(const MyApp());
@@ -16,30 +19,61 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
-      theme: ThemeData(fontFamily: 'OpenSans'),
+      title: 'Impulse',
+      home: SafeArea(
+        child: HomePage(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class BoringPage extends StatelessWidget {
+  const BoringPage({Key? key}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: HomePage()),
-      extendBody: true,
+      body: Center(
+        child: DashCastApp(),
+      ),
     );
+  }
+}
+
+class PlayBackButton extends StatefulWidget {
+  PlayBackButton({Key? key}) : super(key: key);
+
+  @override
+  State<PlayBackButton> createState() => _PlayBackButtonState();
+}
+
+class _PlayBackButtonState extends State<PlayBackButton> {
+  bool _isPlaying = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        if (_isPlaying) {
+          _stop();
+        } else {
+          _play();
+        }
+        setState(() => _isPlaying = !_isPlaying);
+      },
+      icon: _isPlaying ? Icon(Icons.stop) : Icon(Icons.play_arrow_rounded),
+    );
+  }
+
+  void _stop() {}
+
+  void _play() async {
+    final url = 'https://flutter-sound.canardoux.xyz/extract/05.mp3';
+    FlutterSound flutterSound = FlutterSound();
+    // String path = await flutterSound.startPlayer(url);
   }
 }
